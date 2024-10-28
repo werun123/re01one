@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ROLLCALLDEVICE</title>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      #index {
+        width: 500px;
+        height: 300px;
+        border: none;
+        margin: 50px auto;
+        text-align: center;
+        
+      }
+
+      #info {
+        width: 100%;
+        height: 80%;
+        line-height: 160px;
+        border-radius: 30px;
+        background-color: #f1f1;
+        box-shadow: 0 3px 3px 0 #dcdcdc;
+        text-align: center;
+        color: #dcdcdc;
+        margin-bottom: 10px;
+      }
+
+
+      #btn {
+        height: 40px;
+        width: 60px;
+        line-height: 40px;
+        border: none;
+        outline: none;
+        background-color: red;
+        border-radius: 30px;
+        text-align: center;
+        box-shadow: 0 3px 3px 0 #dcdcdc;
+      }
+</style>
+    <script type="text/javascript">
+      window.onload = function() {
+
+        var classMate = ["12郭源佳","23李政豪","27林超亿","29卢嘉名",
+"34彭中豪","44谢培炜","52张伟濠" ,"54张壮佳" ];
+
+        var btn = document.getElementById("btn");
+        var info = document.getElementById("info");
+        var flag = false;
+        var myinterval;
+
+        btn.onclick = function() {
+
+          flag = !flag;
+
+          if (flag) {
+
+            myinterval = setInterval(function() {
+              var num = Math.floor(Math.random() * classMate.length);
+              info.innerHTML = classMate[num]
+            }, 50);
+
+            btn.innerHTML = "pause";
+          } else {
+            clearInterval(myinterval);
+            btn.innerHTML = "begin";
+          }
+
+
+        }
+      }
+</script>
+  </head>
+  <body>
+    <div id="index">
+    <font face="隶书"size="20"color:"blue">
+      <div id="info";>lucky guest</div>
+      <button id="btn">begin</button>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+​
+
+
