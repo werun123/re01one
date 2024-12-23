@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣诞树</title>
+    <style>
+        :root {
+            --tree-color: #008000;
+            --ball-color: #FF0000;
+            --star-color: #FFFF00;
+            --text-color: #FF4500;
+            --bg-color: #FFFFFF;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            margin: 0;
+            font-family: sans-serif; /* fallback font */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .christmas-tree svg {
+            width: 250px; 
+            height: auto;
+            display: block;
+        }
+        .christmas-tree .tree-base {
+            fill: var(--tree-color);
+        }
+        .christmas-tree .tree-layer {
+            fill: var(--tree-color);
+        }
+        .christmas-tree .ball {
+            fill: var(--ball-color);
+        }
+        .christmas-tree .star {
+            fill: var(--star-color);
+        }
+        .christmas-text {
+            margin-top: 20px;
+            font-size: 2em;
+            color: var(--text-color);
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            .christmas-tree svg {
+                width: 80vw;
+            }
+            .christmas-text {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="christmas-tree">
+            <svg viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+                <!-- 星星 -->
+                <polygon class="star" points="50,5 38,30 10,35 30,58 25,90 50,78 75,90 70,58 90,35 62,30" />
+                <!-- 树的顶部 -->
+                <path class="tree-layer" d="M50,25 L30,40 C25,45 15,50 20,58 L80,58 C85,50 75,45 70,40 Z"/>
+                <!-- 第一层树枝 -->
+                <path class="tree-layer" d="M20,58 L30,70 C28,78 18,80 20,88 L80,88 C82,80 72,78 70,70 Z"/>
+                 <!-- 第二层树枝 -->
+                <path class="tree-layer" d="M20,88 L30,100 C28,108 18,110 25,116 L75,116 C82,110 72,108 70,100 Z"/>
+                <!-- 树干 -->
+                <path class="tree-base" d="M42,116 L42,125 L58,125 L58,116 Z" />
+                <!-- 装饰球 -->
+                 <circle class="ball" cx="35" cy="45" r="3" />
+                <circle class="ball" cx="65" cy="45" r="3" />
+                <circle class="ball" cx="25" cy="68" r="3" />
+                <circle class="ball" cx="75" cy="68" r="3" />
+                <circle class="ball" cx="45" cy="92" r="3" />
+                <circle class="ball" cx="28" cy="105" r="3" />
+                 <circle class="ball" cx="62" cy="105" r="3" />
+
+            </svg>
+        </div>
+        <div class="christmas-text">MerryChristmas,dw,and I need you </div>
+    </div>
+<script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.innerHTML = '❄'; 
+            snowflake.style.left = Math.random() * 100 + 'vw'; /
+            snowflake.style.fontSize = Math.random() * 1 + 0.5 + 'em'; 
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; 
+            document.body.appendChild(snowflake);
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+        setInterval(createSnowflake, 300);
+
+    </script>
+</body>
+</html>
